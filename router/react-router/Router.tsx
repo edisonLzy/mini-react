@@ -1,8 +1,8 @@
 import { PropsWithChildren, useEffect, useState } from 'react';
 import RouterContext from './RouterContext';
-import type { History } from 'history';
+// import type { History } from 'history';
 interface Props {
-  history: History;
+  history: any;
 }
 /**
  * 1. 接受 react-router-dom 提供的 history对象 到上下文中
@@ -17,7 +17,7 @@ export default function Route({ history, children }: PropsWithChildren<Props>) {
     location,
   });
   useEffect(() => {
-    const off = history.listen((location) => {
+    const off = history.listen((location: any) => {
       setRouteValue({
         ...routeValue,
         location,
@@ -25,6 +25,7 @@ export default function Route({ history, children }: PropsWithChildren<Props>) {
     });
     return off;
   }, []);
+
   return (
     <RouterContext.Provider value={routeValue}>
       {children}

@@ -9,7 +9,9 @@ export default function ({ to, children, ...props }: PropsWithChildren<Props>) {
   const handleClick = useCallback(
     (e) => {
       e.preventDefault();
-      history.push(to);
+      history.push(to, {
+        test: 1,
+      });
     },
     [to]
   );

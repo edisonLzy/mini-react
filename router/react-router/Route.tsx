@@ -1,16 +1,27 @@
 import { ReactElement, useContext } from 'react';
 import RouterContext from './RouterContext';
-interface Props {
+import { matchPath } from './matchPath';
+import type { RegExpOptions } from 'path-to-regexp';
+export interface RouteProps extends RegExpOptions {
   path: string;
   component: (...arg: any[]) => ReactElement;
-  exact: boolean;
+  exact?: boolean;
 }
 export default function Route({
   path,
   component: RouteComponent,
   exact,
-}: Props) {
+  sensitive,
+  strict,
+}: RouteProps) {
   const { history, location } = useContext(RouterContext);
-  const isMatch = path === location.pathname;
-  return isMatch ? <RouteComponent {...{ history, location }} /> : null;
+  const isMatch = matchPath(location.pathname, {
+    exact,
+    sensitive,
+    strict,
+    path,
+  });
+  return isMatch ? (
+    <RouteComponent {...{ history, location, match: isMatch }} />
+  ) : null;
 }
