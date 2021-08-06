@@ -2,9 +2,10 @@ import { ReactElement, useContext } from 'react';
 import RouterContext from './RouterContext';
 import { matchPath } from './matchPath';
 import type { RegExpOptions } from 'path-to-regexp';
+
 export interface RouteProps extends RegExpOptions {
   path: string;
-  component: (...arg: any[]) => ReactElement;
+  component: React.ComponentType<any>;
   exact?: boolean;
 }
 export default function Route({

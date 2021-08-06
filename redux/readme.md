@@ -1,31 +1,31 @@
-# 实现原理redux
+# 实现原理 redux
 
-> 不与react相关联,可用于vue, js 等
+> 不与 react 相关联,可用于 vue, js 等
 
-- [ ] 实现createStore
+- [x] 实现 createStore
 
-> getState 
+> getState
 >
-> dispatch
+> dispatch: 根据 reducer 获取新状态;派发更新监听函数
 >
 > subscribe: 返回取消监听函数
 
-- [ ] 实现dispatch派发更新
+- [x] 实现 dispatch 派发更新
 
 > 发布订阅模式
 
-- [ ] 实现bindActionsCreators和bindActionsCreator
+- [x] 实现 bindActionsCreators 和 bindActionsCreator
 
-> 1. 将actionCreator 和 store.dispatch 绑定
+> 1. 将 actionCreator 和 store.dispatch 绑定
 > 2. 第一参数可以是一个函数
 
-- [ ] combineReducers
+- [x] combineReducers
 
-> 1. redux只能有一个reducer和一个state,所有需要将状态拆分成小状态
+> 1. redux 只能有一个 reducer 和一个 state,所有需要将状态拆分成小状态
 
-- [ ] 实现react-redux
+- [x] 实现 react-redux
 
-> 1. 实现 connect函数（状态映射属性,dispatch映射属性，订阅）
-> 2. 实现 Provider组件(通过ContextAPI 提供 仓库(store))
+> 1. 实现 connect 函数（状态映射属性,dispatch 映射属性，订阅）
+> 2. 实现 Provider 组件(通过 ContextAPI 提供 仓库(store))
 
 - [ ] 中间件原理
