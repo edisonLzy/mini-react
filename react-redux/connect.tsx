@@ -14,7 +14,6 @@ export function connect(mapStateToProps, mapDispatchToProps) {
           ...mapAction,
         };
       }, [preState]);
-
       useLayoutEffect(() => {
         return store.subscribe(forceUpdate);
       }, []);

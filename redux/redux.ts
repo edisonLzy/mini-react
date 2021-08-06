@@ -3,6 +3,10 @@ type Listener = () => void;
 export function createStore<T>(reducer: Reducer<T>) {
   let state: T;
   let listeners: Listener[] = [];
+
+  function getListeners() {
+    return listeners;
+  }
   function getState() {
     return state;
   }
@@ -24,6 +28,7 @@ export function createStore<T>(reducer: Reducer<T>) {
   return {
     getState,
     dispatch,
+    getListeners,
     subscribe,
   };
 }
